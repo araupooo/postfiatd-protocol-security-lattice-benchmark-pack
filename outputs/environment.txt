@@ -1,0 +1,22 @@
+=== environment ===
+date_utc: 2026-11-25T14:21:12Z
+date_local: 2026-11-25 14:21:12 UTC
+hostname: htch-runtime
+os: Ubuntu 24.04.5 LTS
+kernel: 7.0.0-44-generic
+arch: x86_64
+cpu_model: AMD EPYC 9D25 126-Core Processor
+cpu_count_logical: 4
+cpu_mhz: 1497.751
+mem_total_kb: 8124900
+mem_available_kb: 882412
+load_average: 3.27 2.79 1.75 4/575 26721
+cc: cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake: cmake version 3.28.3
+openssl: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+python3: Python 3.12.3
+git: git version 2.43.0
+liboqs_source: open-quantum-safe/liboqs tag 0.14.0 (see PINNED-REVISION.md)
+liboqs_build_dir: /tmp/liboqs/build
+single_threaded: yes (all benchmarks run on one thread)
+cpu_governor_note: shared VM vCPU; clock speed is not pinned. See LIMITATIONS.md.

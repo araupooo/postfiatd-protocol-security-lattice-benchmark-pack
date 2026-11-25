@@ -1,0 +1,133 @@
+=== pq-signature benchmark run ===
+date_utc: 2026-11-25T14:23:09Z
+liboqs: 0.14.0 (open-quantum-safe/liboqs, tag 0.14.0)
+message: fixed 32-byte vector (256-bit digest length, mirrors postfiatd sha512Half)
+threads: 1
+verify_budget_sec: 5
+sign_budget_sec: 5 (capped at 25 sign iterations per algorithm)
+
+--- ML-DSA-44 ---
+liboqs_algorithm_name: ML-DSA-44
+liboqs_version: 0.14.0
+algorithm: ML-DSA-44
+claimed_nist_level: 2
+length_public_key: 1312
+length_secret_key: 2560
+length_signature: 2420
+signature_len_produced: 2420
+control_valid_signature_verifies: PASS
+control_tampered_signature_rejected: PASS
+verify_ops: 130817
+verify_seconds: 5.000027
+verify_ops_per_sec: 26163.257
+verify_usec_per_op: 38.222
+sign_ops: 25
+sign_seconds: 0.002639
+sign_ops_per_sec: 9473.547
+sign_usec_per_op: 105.557
+sign_note: iteration cap of 25 reached; rate is a lower bound
+keypair_ops: 10
+keypair_seconds: 0.000343
+keypair_ops_per_sec: 29170.337
+result: OK
+
+--- ML-DSA-65 ---
+liboqs_algorithm_name: ML-DSA-65
+liboqs_version: 0.14.0
+algorithm: ML-DSA-65
+claimed_nist_level: 3
+length_public_key: 1952
+length_secret_key: 4032
+length_signature: 3309
+signature_len_produced: 3309
+control_valid_signature_verifies: PASS
+control_tampered_signature_rejected: PASS
+verify_ops: 83897
+verify_seconds: 5.000061
+verify_ops_per_sec: 16779.197
+verify_usec_per_op: 59.598
+sign_ops: 25
+sign_seconds: 0.004735
+sign_ops_per_sec: 5279.374
+sign_usec_per_op: 189.416
+sign_note: iteration cap of 25 reached; rate is a lower bound
+keypair_ops: 10
+keypair_seconds: 0.000559
+keypair_ops_per_sec: 17875.050
+result: OK
+
+--- ML-DSA-87 ---
+liboqs_algorithm_name: ML-DSA-87
+liboqs_version: 0.14.0
+algorithm: ML-DSA-87
+claimed_nist_level: 5
+length_public_key: 2592
+length_secret_key: 4896
+length_signature: 4627
+signature_len_produced: 4627
+control_valid_signature_verifies: PASS
+control_tampered_signature_rejected: PASS
+verify_ops: 55817
+verify_seconds: 5.000066
+verify_ops_per_sec: 11163.253
+verify_usec_per_op: 89.580
+sign_ops: 25
+sign_seconds: 0.005990
+sign_ops_per_sec: 4173.476
+sign_usec_per_op: 239.608
+sign_note: iteration cap of 25 reached; rate is a lower bound
+keypair_ops: 10
+keypair_seconds: 0.001019
+keypair_ops_per_sec: 9817.319
+result: OK
+
+--- SLH-DSA-SHA2-128s ---
+liboqs_algorithm_name: SPHINCS+-SHA2-128s-simple
+liboqs_version: 0.14.0
+algorithm: SPHINCS+-SHA2-128s-simple
+claimed_nist_level: 1
+length_public_key: 32
+length_secret_key: 64
+length_signature: 7856
+signature_len_produced: 7856
+control_valid_signature_verifies: PASS
+control_tampered_signature_rejected: PASS
+verify_ops: 12308
+verify_seconds: 5.000167
+verify_ops_per_sec: 2461.518
+verify_usec_per_op: 406.253
+sign_ops: 18
+sign_seconds: 5.028801
+sign_ops_per_sec: 3.579
+sign_usec_per_op: 279377.836
+keypair_ops: 10
+keypair_seconds: 0.361959
+keypair_ops_per_sec: 27.627
+result: OK
+
+--- SLH-DSA-SHA2-128f ---
+liboqs_algorithm_name: SPHINCS+-SHA2-128f-simple
+liboqs_version: 0.14.0
+algorithm: SPHINCS+-SHA2-128f-simple
+claimed_nist_level: 1
+length_public_key: 32
+length_secret_key: 64
+length_signature: 17088
+signature_len_produced: 17088
+control_valid_signature_verifies: PASS
+control_tampered_signature_rejected: PASS
+verify_ops: 4841
+verify_seconds: 5.000022
+verify_ops_per_sec: 968.196
+verify_usec_per_op: 1032.849
+sign_ops: 25
+sign_seconds: 0.323133
+sign_ops_per_sec: 77.368
+sign_usec_per_op: 12925.315
+sign_note: iteration cap of 25 reached; rate is a lower bound
+keypair_ops: 10
+keypair_seconds: 0.005514
+keypair_ops_per_sec: 1813.477
+result: OK
+
+date_utc_end: 2026-11-25T14:23:40Z

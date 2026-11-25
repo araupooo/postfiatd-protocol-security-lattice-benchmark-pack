@@ -1,0 +1,57 @@
+=== transaction-burst model (SIMULATED) ===
+status: SIMULATED — arithmetic on measured inputs, not a postfiatd measurement
+window_seconds_assumed: 4.0
+threads_modelled: 1, 2, 4 (linear scaling assumed, NOT measured)
+invalid_signature_cost_modelled: 1.0 x one full verify (NOT measured separately)
+classical_signature_bytes_assumed: 64 (Ed25519)
+measured_inputs:
+  pq_log: benchmark-pq.log
+  classical_log: benchmark-classical.log
+  measured_verify_ops_per_sec[ECDSA P-256]: 10435.000
+  measured_verify_ops_per_sec[Ed25519]: 6806.800
+  measured_verify_ops_per_sec[ML-DSA-44]: 26163.257
+  measured_verify_ops_per_sec[ML-DSA-65]: 16779.197
+  measured_verify_ops_per_sec[ML-DSA-87]: 11163.253
+  measured_verify_ops_per_sec[SLH-DSA-SHA2-128s]: 2461.518
+  measured_verify_ops_per_sec[SLH-DSA-SHA2-128f]: 968.196
+
+--- B1: single-thread drain time (seconds) for a burst of N signatures ---
+burst_size | ECDSA P-256 | Ed25519 | ML-DSA-44 | ML-DSA-65 | ML-DSA-87 | SLH-DSA-SHA2-128s | SLH-DSA-SHA2-128f
+1000 | 0.10 | 0.15 | 0.04 | 0.06 | 0.09 | 0.41 | 1.03
+10000 | 0.96 | 1.47 | 0.38 | 0.60 | 0.90 | 4.06 | 10.33
+100000 | 9.58 | 14.69 | 3.82 | 5.96 | 8.96 | 40.63 | 103.28
+1000000 | 95.83 | 146.91 | 38.22 | 59.60 | 89.58 | 406.25 | 1032.85
+
+--- B2: max signatures verifiable in one 4 s window (single thread) ---
+  ECDSA P-256: 41740.0
+  Ed25519: 27227.2
+  ML-DSA-44: 104653.0
+  ML-DSA-65: 67116.8
+  ML-DSA-87: 44653.0
+  SLH-DSA-SHA2-128s: 9846.1
+  SLH-DSA-SHA2-128f: 3872.8
+
+--- B3: extra signature bytes vs Ed25519 for a burst of N tx (MiB) ---
+  ML-DSA-44 (+2356 B/sig): 2.25 | 22.47 | 224.69 | 2246.86
+  ML-DSA-65 (+3245 B/sig): 3.09 | 30.95 | 309.47 | 3094.67
+  ML-DSA-87 (+4563 B/sig): 4.35 | 43.52 | 435.16 | 4351.62
+  SLH-DSA-SHA2-128s (+7792 B/sig): 7.43 | 74.31 | 743.10 | 7431.03
+  SLH-DSA-SHA2-128f (+17024 B/sig): 16.24 | 162.35 | 1623.54 | 16235.35
+
+--- B4: drain time (seconds) for a 100,000-signature burst by thread count (linear-scaling model) ---
+  ECDSA P-256: 9.58 | 4.79 | 2.40  (threads 1 | 2 | 4)
+  Ed25519: 14.69 | 7.35 | 3.67  (threads 1 | 2 | 4)
+  ML-DSA-44: 3.82 | 1.91 | 0.96  (threads 1 | 2 | 4)
+  ML-DSA-65: 5.96 | 2.98 | 1.49  (threads 1 | 2 | 4)
+  ML-DSA-87: 8.96 | 4.48 | 2.24  (threads 1 | 2 | 4)
+  SLH-DSA-SHA2-128s: 40.63 | 20.31 | 10.16  (threads 1 | 2 | 4)
+  SLH-DSA-SHA2-128f: 103.28 | 51.64 | 25.82  (threads 1 | 2 | 4)
+
+--- B5: burst headroom — how many x the current classical rate each PQ scheme costs ---
+  ML-DSA-44: verify is 0.3x slower than Ed25519; drain time 0.3x longer
+  ML-DSA-65: verify is 0.4x slower than Ed25519; drain time 0.4x longer
+  ML-DSA-87: verify is 0.6x slower than Ed25519; drain time 0.6x longer
+  SLH-DSA-SHA2-128s: verify is 2.8x slower than Ed25519; drain time 2.8x longer
+  SLH-DSA-SHA2-128f: verify is 7.0x slower than Ed25519; drain time 7.0x longer
+
+recompute: drain_time = burst_size / verify_ops_per_sec; all inputs above are copied from the raw logs named here.

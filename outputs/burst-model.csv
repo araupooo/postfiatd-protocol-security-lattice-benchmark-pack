@@ -1,0 +1,50 @@
+scenario,algorithm,burst_size,threads,verify_ops_per_sec_measured,drain_time_seconds,max_per_4s_window,extra_sig_bytes_vs_ed25519
+B1_drain_single_thread,ECDSA P-256,1000,1,10435.000,0.096,41740.0,0
+B1_drain_single_thread,ECDSA P-256,10000,1,10435.000,0.958,41740.0,0
+B1_drain_single_thread,ECDSA P-256,100000,1,10435.000,9.583,41740.0,0
+B1_drain_single_thread,ECDSA P-256,1000000,1,10435.000,95.831,41740.0,0
+B4_drain_100k_by_threads,ECDSA P-256,100000,1,10435.000,9.583,,
+B4_drain_100k_by_threads,ECDSA P-256,100000,2,10435.000,4.792,,
+B4_drain_100k_by_threads,ECDSA P-256,100000,4,10435.000,2.396,,
+B1_drain_single_thread,Ed25519,1000,1,6806.800,0.147,27227.2,0
+B1_drain_single_thread,Ed25519,10000,1,6806.800,1.469,27227.2,0
+B1_drain_single_thread,Ed25519,100000,1,6806.800,14.691,27227.2,0
+B1_drain_single_thread,Ed25519,1000000,1,6806.800,146.912,27227.2,0
+B4_drain_100k_by_threads,Ed25519,100000,1,6806.800,14.691,,
+B4_drain_100k_by_threads,Ed25519,100000,2,6806.800,7.346,,
+B4_drain_100k_by_threads,Ed25519,100000,4,6806.800,3.673,,
+B1_drain_single_thread,ML-DSA-44,1000,1,26163.257,0.038,104653.0,2356
+B1_drain_single_thread,ML-DSA-44,10000,1,26163.257,0.382,104653.0,2356
+B1_drain_single_thread,ML-DSA-44,100000,1,26163.257,3.822,104653.0,2356
+B1_drain_single_thread,ML-DSA-44,1000000,1,26163.257,38.222,104653.0,2356
+B4_drain_100k_by_threads,ML-DSA-44,100000,1,26163.257,3.822,,
+B4_drain_100k_by_threads,ML-DSA-44,100000,2,26163.257,1.911,,
+B4_drain_100k_by_threads,ML-DSA-44,100000,4,26163.257,0.956,,
+B1_drain_single_thread,ML-DSA-65,1000,1,16779.197,0.060,67116.8,3245
+B1_drain_single_thread,ML-DSA-65,10000,1,16779.197,0.596,67116.8,3245
+B1_drain_single_thread,ML-DSA-65,100000,1,16779.197,5.960,67116.8,3245
+B1_drain_single_thread,ML-DSA-65,1000000,1,16779.197,59.598,67116.8,3245
+B4_drain_100k_by_threads,ML-DSA-65,100000,1,16779.197,5.960,,
+B4_drain_100k_by_threads,ML-DSA-65,100000,2,16779.197,2.980,,
+B4_drain_100k_by_threads,ML-DSA-65,100000,4,16779.197,1.490,,
+B1_drain_single_thread,ML-DSA-87,1000,1,11163.253,0.090,44653.0,4563
+B1_drain_single_thread,ML-DSA-87,10000,1,11163.253,0.896,44653.0,4563
+B1_drain_single_thread,ML-DSA-87,100000,1,11163.253,8.958,44653.0,4563
+B1_drain_single_thread,ML-DSA-87,1000000,1,11163.253,89.580,44653.0,4563
+B4_drain_100k_by_threads,ML-DSA-87,100000,1,11163.253,8.958,,
+B4_drain_100k_by_threads,ML-DSA-87,100000,2,11163.253,4.479,,
+B4_drain_100k_by_threads,ML-DSA-87,100000,4,11163.253,2.239,,
+B1_drain_single_thread,SLH-DSA-SHA2-128s,1000,1,2461.518,0.406,9846.1,7792
+B1_drain_single_thread,SLH-DSA-SHA2-128s,10000,1,2461.518,4.063,9846.1,7792
+B1_drain_single_thread,SLH-DSA-SHA2-128s,100000,1,2461.518,40.625,9846.1,7792
+B1_drain_single_thread,SLH-DSA-SHA2-128s,1000000,1,2461.518,406.253,9846.1,7792
+B4_drain_100k_by_threads,SLH-DSA-SHA2-128s,100000,1,2461.518,40.625,,
+B4_drain_100k_by_threads,SLH-DSA-SHA2-128s,100000,2,2461.518,20.313,,
+B4_drain_100k_by_threads,SLH-DSA-SHA2-128s,100000,4,2461.518,10.156,,
+B1_drain_single_thread,SLH-DSA-SHA2-128f,1000,1,968.196,1.033,3872.8,17024
+B1_drain_single_thread,SLH-DSA-SHA2-128f,10000,1,968.196,10.328,3872.8,17024
+B1_drain_single_thread,SLH-DSA-SHA2-128f,100000,1,968.196,103.285,3872.8,17024
+B1_drain_single_thread,SLH-DSA-SHA2-128f,1000000,1,968.196,1032.849,3872.8,17024
+B4_drain_100k_by_threads,SLH-DSA-SHA2-128f,100000,1,968.196,103.285,,
+B4_drain_100k_by_threads,SLH-DSA-SHA2-128f,100000,2,968.196,51.642,,
+B4_drain_100k_by_threads,SLH-DSA-SHA2-128f,100000,4,968.196,25.821,,
