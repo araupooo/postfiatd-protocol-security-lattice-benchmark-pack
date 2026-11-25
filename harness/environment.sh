@@ -1,0 +1,32 @@
+#!/bin/sh
+# environment.sh — record the benchmark environment (unedited output).
+# Writes outputs/environment.txt. No network access. Safe to re-run.
+set -eu
+OUT="${1:-outputs/environment.txt}"
+mkdir -p "$(dirname "$OUT")"
+{
+    echo "=== environment ==="
+    echo "date_utc: $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+    echo "date_local: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+    echo "hostname: $(hostname)"
+    echo "os: $(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2- | tr -d '"')"
+    echo "kernel: $(uname -r)"
+    echo "arch: $(uname -m)"
+    echo "cpu_model: $(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | sed 's/^ //')"
+    echo "cpu_count_logical: $(nproc)"
+    echo "cpu_mhz: $(grep -m1 'cpu MHz' /proc/cpuinfo | cut -d: -f2 | sed 's/^ //')"
+    echo "mem_total_kb: $(grep '^MemTotal:' /proc/meminfo | awk '{print $2}')"
+    echo "mem_available_kb: $(grep '^MemAvailable:' /proc/meminfo | awk '{print $2}')"
+    echo "load_average: $(cat /proc/loadavg)"
+    echo "cc: $(cc --version | head -1)"
+    echo "cmake: $(cmake --version | head -1)"
+    echo "openssl: $(openssl version)"
+    echo "python3: $(python3 --version 2>&1)"
+    echo "git: $(git --version)"
+    echo "liboqs_source: open-quantum-safe/liboqs tag 0.14.0 (see PINNED-REVISION.md)"
+    echo "liboqs_build_dir: ${LIBOQS_BUILD_DIR:-.deps/liboqs/build}"
+    echo "single_threaded: yes (all benchmarks run on one thread)"
+    echo "cpu_governor_note: shared VM vCPU; clock speed is not pinned. See LIMITATIONS.md."
+} > "$OUT"
+echo "wrote $OUT"
+cat "$OUT"
